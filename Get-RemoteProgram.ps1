@@ -1,6 +1,7 @@
 ﻿Function Get-RemoteProgram {
 <#
 .Synopsis
+I DID NOT WRITE THIS, BUT IT IS VERY USEFUL
 Generates a list of installed programs on a computer
 
 .DESCRIPTION
