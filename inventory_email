@@ -1,0 +1,32 @@
+function checkInventory() {
+  // Fetch the QTY of each item in stock
+  var weekFuser = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Printers/WFH").getRange("D4");
+  var qtyFuser = weekFuser.getValue();
+  var weekImagingUnit = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Printers/WFH").getRange("D5");
+  var qtyImagingUnit = weekImagingUnit.getValue();
+  var weekBImagingUnit = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Printers/WFH").getRange("D6");
+  var qtyBImagingUnit = weekBImagingUnit.getValue();
+  var weekTransferModule = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Printers/WFH").getRange("D7");
+  var qtyTransferModule = weekTransferModule.getValue();
+  //var weekDocks = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Printers/WFH").getRange("D11");
+  //var qtyDocks = weekDocks.getValue();
+  //var weekHDMI = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Printers/WFH").getRange("12");
+  //var qtyHDMI = weekHDMI.getValue();
+  //var weekEthernet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Printers/WFH").getRange("13");
+  //var qtyEthernet = weekEthernet.getValue();
+  //var weekKeyboard = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Printers/WFH").getRange("14");
+  //var qtyKeyboard = weekKeyboard.getValue();
+  //var weekPrivacy = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Printers/WFH").getRange("15");
+  //var qtyPrivacy = weekPrivacy.getValue();
+  //var weekSurge = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Printers/WFH").getRange("16");
+  //var qtySurge = weekSurge.getValue();
+ 
+ 
+     
+  //if (qtyFuser || qtyImagingUnit || qtyBImagingUnit || qtyTransferModule || qtyDocks || qtyHDMI || qtyEthernet || qtyPrivacy || qtySurge <= 10){
+  var body = 'Printer Inventory count.\nThere are ' + qtyFuser + ' Fusers in stock\nThere are ' + qtyImagingUnit + ' Color Imaging Units in stock.\nThere are ' + qtyTransferModule + ' Transfer Modules in stock.\nThere are ' + qtyBImagingUnit + ' Black Imaging Units in stock.\nhttps://docs.google.com/spreadsheets/d/1lNxS7kismlF00JcO_gDvPMgTZ-EJhDsBQUl-yZVs9cQ/edit#gid=2034464095 '
+  var subject = 'Printer Inventory Supply Alert';
+  var emailRange = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Email").getRange("B2");
+  var emailAddress = emailRange.getValue(); // Fetch the email address
+  MailApp.sendEmail(emailAddress, subject, body); // Send Alert Email
+  }
